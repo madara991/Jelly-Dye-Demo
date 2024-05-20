@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10c05ab16ec9e94685bdc2c2661e139, type: 3}
+  m_Name: Level 2
+  m_EditorClassIdentifier: 
+  levelNumber: 2
+  JellyObject: {fileID: 4531152131111325270, guid: ae7d5499dc61f5041ad45b35378b9aee, type: 3}
+  JellySprtie: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  ColorsNumber: 5
+  InjectionColors:
+  - {r: 0.96981126, g: 0.07868272, b: 0.07868272, a: 1}
+  - {r: 0.0494054, g: 0.07520167, b: 0.96981126, a: 1}
+  - {r: 0.93962264, g: 0.11878247, b: 0.819607, a: 1}
+  - {r: 1, g: 0.42830187, b: 0.42830187, a: 1}
+  - {r: 0.9622642, g: 0.94955504, b: 0.94955504, a: 1}
