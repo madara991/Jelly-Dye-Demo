@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
 	public bool isStartPlaying;
 
-	private void Awake()
+	void Awake()
     {
         if (instance == null)
         {
@@ -23,14 +23,13 @@ public class GameManager : MonoBehaviour
         else Destroy(this.gameObject);
 
     }
-
     private void OnEnable()
     {
         Invoke("AddOnStartDataLevel", 0.1f); // For Avoid Errors of frames work ( Awake and OnEnable functiions)
 	}
     void AddOnStartDataLevel() => OnStartLevelEvent += GameData.Instance.SetupDataLevel;
 
-    // Process when button
+    // Process when Press button
     public void OnStartLevel(int level)
     {
         isStartPlaying = true;

@@ -51,7 +51,7 @@ public class GameData : MonoBehaviour
 
 		foreach (var needle in allNeedls)
 		{
-			needle.SetActive(needle != _myNeedle);
+			needle.SetActive(needle == _myNeedle);
 		}
 	} 
 	public void SetLevelIndux(int indux)

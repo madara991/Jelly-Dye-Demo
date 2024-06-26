@@ -1,7 +1,9 @@
+using StableFluids;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 public class UiGame: MonoBehaviour 
 {
@@ -19,16 +21,22 @@ public class UiGame: MonoBehaviour
 	public Text levelText;
 	public Image jellySprite;
 
+	public Image origenalImage;
+	public Image EditedImage;
+
 	public int numberColors;
 	public Color[] ColorsContainers;
 	public Transform contactColors;
 	public GameObject colorContainer_Pref;
+	public Color colorEquiped;
 	public void SetParameters_UILevel()
 	{
 
 		levelText.text = "Level " + (GameData.Instance.GetLevelIndux() + 1).ToString();
 		jellySprite.sprite = GameData.Instance.jellySprite;
 		numberColors = GameData.Instance.colorsNumber;
+
+		origenalImage.sprite = GameData.Instance.jellySprite;
 
 		SetColorsContainers();
 
@@ -37,29 +45,33 @@ public class UiGame: MonoBehaviour
 	{
 		numberColors = GameData.Instance.colorsNumber;
 		ColorsContainers = GameData.Instance.injectionColors;
-
-
 		for (int i = 0; i < numberColors; i++)
 		{
-			
 			GameObject container = Instantiate(colorContainer_Pref, contactColors);
 			container.GetComponent<Image>().color = ColorsContainers[i];
+			int indux = i;
+			container.GetComponent<Button>().onClick.AddListener(() => ChoiceColor(indux));
+			
+			
 		}
+		
 	}
+	
 	public void ShowNextButton()
 	{
 		NextLevelButton.SetActive(true);
 	}
 
-	void ShowWinnerPanale()
+	// button event
+	public void OnShowWinnerPanale()
 	{
-		WinnerPanal.SetActive(true);
-		NextLevelButton.SetActive(false);
+		EditedImage.sprite = GetComponent<ScreenCapture>().CaptureScreenshot();
 
 	}
     // linked with OnFinshEvent action
 	public void Exit()
 	{
+		Debug.Log("Exit");
 		GameManager.instance.isStartPlaying = false;
 		gameState.CurrentLevel = GameData.Instance.GetLevelIndux();
 
@@ -73,7 +85,9 @@ public class UiGame: MonoBehaviour
 
 		mainMenu.SetActive(true);
 
-		Destroy(gameState.Jelly);
+		if (gameState.jellyClone != null)
+			Debug.Log("is exist");
+		Destroy(gameState.jellyClone);
 
 		for (int i = 0; i < contactColors.childCount; i++)
 		{
@@ -85,12 +99,23 @@ public class UiGame: MonoBehaviour
 	}
 	public void OnFinshLevel()
 	{
+		Debug.Log("OnFinshLevel method called");
 		GameManager.instance.OnFinshLevelEvent?.Invoke();
 	}
-
+	
 	public void ChoiseNeedle(int indux)
 	{
 		GameData.Instance.SetNeedlesIndux(indux);
+		Debug.Log("choice needle: " + indux);
+		Debug.Log("my needle now: " + GameData.Instance.GetNeedle().name);
+	}
+	public void ChoiceColor(int indux)
+	{
+		var colorChoised = ColorsContainers[indux];
+		var myNeedle = GameData.Instance.GetNeedle();
+		myNeedle.GetComponent<PlayerControler>().colorEquiped = colorChoised;
+		myNeedle.GetComponent<PlayerControler>().isReloading = true;
+		GameObject.FindGameObjectWithTag("camera rendering").GetComponent<Fluid>().fluidColor = ColorsContainers[indux];
 	}
 
 	void luckLevel()
@@ -104,4 +129,6 @@ public class UiGame: MonoBehaviour
 		NeedlesElemnts[Indux].transform.GetChild(0).gameObject.SetActive(false);
 		NeedlesElemnts[Indux].transform.GetChild(1).gameObject.SetActive(true);
 	}
+
+	
 }

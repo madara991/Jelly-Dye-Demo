@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   levelNumber: 1
-  JellyObject: {fileID: 4531152131111325270, guid: ae7d5499dc61f5041ad45b35378b9aee, type: 3}
-  JellySprtie: {fileID: 21300000, guid: ecc676b8ac50e1145b7320450a3b5915, type: 3}
+  JellyObject: {fileID: 6204866869484457458, guid: 20a755b8f0170024b9a3b6e5b48f920d, type: 3}
+  JellySprtie: {fileID: 21300000, guid: 2b1f6004786406b449400c5cf0c85c65, type: 3}
   ColorsNumber: 3
   InjectionColors:
   - {r: 1, g: 0.20943397, b: 0.20943397, a: 1}

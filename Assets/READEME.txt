@@ -1,0 +1,12 @@
+look like jelly Dye game "uncomplete"
+Awad Developer
+Unity 2022.3.16
+
+
+Make sure :
+
+1-  resulation of Game window is "Mobile game screen"  or 1600 x 2560
+2- make sure the "GameState" script is disable 
+3- shader of objects its not work with URP
+4- the projects have problems in rendrer texture of objects
+

@@ -1,3 +1,4 @@
+using StableFluids;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,37 +14,40 @@ public class GameState : MonoBehaviour
 
 	[HideInInspector]
 	public GameObject Jelly;
-	private float rationComplete;
+	
+	public GameObject jellyClone;
+	public static float rationComplete;
 	public Vector3 jellyCallPosition; // position of jelly for instantiate it when start level 
-
-
+	
 	UiGame uiGame { get { return this.gameObject.GetComponent<UiGame>(); } }
 
 	 void OnEnable()
-	{
-		
+	 {
 		GameManager.instance.OnFinshLevelEvent += uiGame.Exit;
-
 		Jelly = GameData.Instance.jellyObject;
 		Instantiate(Jelly, jellyCallPosition,Jelly.transform.rotation);
-		Debug.Log("ins");
+		jellyClone = GameObject.FindGameObjectWithTag("jelly");
+
+		var camereaRenderer = GameObject.FindGameObjectWithTag("camera rendering");
+		camereaRenderer.GetComponent<Fluid>().TargetObject = jellyClone;
+		camereaRenderer.GetComponent<Fluid>().SetTextureInitlil();
+		
 		GameData.Instance.EquipMyNeedle();
 
 		rationComplete = 0;
 
 		uiGame.SetParameters_UILevel();
 	}
-	// NOOOTE: IS THIS FUNCTION WORK ALWAYS WHEN ENABLE AND DISABLE ? CHECK
-	void Start()
+	private void Start()
 	{
-		
+		// we make "GameState" (enable , disable) when join level , so we dont need start function 
 	}
 	void Update()
 	{
 		if (!GameManager.instance.isStartPlaying)
 			return;
 
-		if(rationComplete >= 50)
+		if(rationComplete >= 3)
 		{
 			if (GameManager.instance.isStartPlaying)
 			{
@@ -56,7 +60,6 @@ public class GameState : MonoBehaviour
 	{
 		GameManager.instance.OnFinshLevelEvent -= uiGame.Exit;
 	}
-
 	
 }
 

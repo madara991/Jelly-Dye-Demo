@@ -6,6 +6,7 @@ TagManager:
   tags:
   - jelly
   - Game State
+  - camera rendering
   layers:
   - Default
   - TransparentFX
@@ -13,7 +14,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - LiquidEffectLayer
   - 
   - 
   - 

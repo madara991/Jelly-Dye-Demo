@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6468722198638042089
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5050988161710953377}
+  - component: {fileID: 3668435692999867700}
+  - component: {fileID: 1851603871717445221}
+  - component: {fileID: 5575921056336976537}
+  m_Layer: 0
+  m_Name: Game State
+  m_TagString: Game State
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &5050988161710953377
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6468722198638042089}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 252.29466, y: 1243.0156, z: -11.111071}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3668435692999867700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6468722198638042089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 91ff0ff21d2ec5f4887522d6d55d14ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isWin: 0
+  CurrentLevel: 0
+  Jelly: {fileID: 0}
+  jellyClone: {fileID: 0}
+  jellyCallPosition: {x: 5, y: 6, z: 0}
+--- !u!114 &1851603871717445221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6468722198638042089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eb23955f2e0ce14c8ab9160e2b98021, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelsElements:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  NeedlesElemnts:
+  - {fileID: 0}
+  - {fileID: 0}
+  mainMenu: {fileID: 0}
+  NextLevelButton: {fileID: 0}
+  WinnerPanal: {fileID: 0}
+  levelText: {fileID: 0}
+  jellySprite: {fileID: 0}
+  origenalImage: {fileID: 0}
+  EditedImage: {fileID: 0}
+  numberColors: 0
+  ColorsContainers: []
+  contactColors: {fileID: 0}
+  colorContainer_Pref: {fileID: 1993863973697254934, guid: a8a9a4f7311a56c41bfc3db0446a23b4, type: 3}
+  colorEquiped: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &5575921056336976537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6468722198638042089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b69144daa8eb2b0478ed284dc0b5921c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camerCapture: {fileID: 0}
+  offset: {x: 0, y: 0}
